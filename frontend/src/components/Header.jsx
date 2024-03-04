@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Login from "./Auth/Login";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+
+  const [isLoginModalOpen, setLoginIsModalOpen] = useState(false);
+
+  const toggleLoginModal = () => {
+    setLoginIsModalOpen(!isLoginModalOpen);
   };
 
   return (
@@ -25,7 +33,7 @@ function Header() {
             </Link>
             <div className="flex items-center lg:order-2">
               <Link
-                to="/login"
+                onClick={toggleLoginModal}
                 className="text-gray-800 bg-blue-500 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
                 Log in
@@ -121,6 +129,8 @@ function Header() {
           </div>
         </nav>
       </header>
+
+      <Login isOpen={isLoginModalOpen} toggleModal={toggleLoginModal} />
     </>
   );
 }
