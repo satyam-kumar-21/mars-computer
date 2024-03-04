@@ -1,22 +1,19 @@
 import React from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Stats from './components/Home/Stats'
-import Teatinomials from './components/Home/Testinomials'
-import Subscribe from './components/Home/Subscribe'
-import MeetOurTeams from './components/Home/MeetOurTeams'
-import HeroSection from './components/Home/HeroSection'
+import Home from './components/Home/Home'
+import { Routes, Route } from "react-router-dom"
+import About from './components/About/About'
 
 const App = () => {
   return (
     <>
-    <Header />
-    <HeroSection />
-    <Stats />
-    <MeetOurTeams />
-    <Subscribe />
-    <Teatinomials />
-    <Footer />
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+      </Routes>
+      <Footer />
     </>
   )
 }
