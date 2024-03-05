@@ -1,7 +1,7 @@
 import React from 'react'
 import Page404 from '../Page404'
 
-function Features() {
+function Batches() {
   return (
     <>
     <Page404 />
@@ -9,4 +9,4 @@ function Features() {
   )
 }
 
-export default Features
+export default Batches;

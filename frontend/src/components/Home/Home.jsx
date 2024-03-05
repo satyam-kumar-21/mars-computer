@@ -4,6 +4,7 @@ import Stats from './Stats'
 import MeetOurTeams from './MeetOurTeams'
 import Subscribe from './Subscribe'
 import Teatinomials from './Testinomials'
+import WhyUs from './WhyUs'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
     <HeroSection />
     <Stats />
     <MeetOurTeams />
+    <WhyUs />
     <Subscribe />
     <Teatinomials />
     </>

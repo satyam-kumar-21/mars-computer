@@ -1,7 +1,7 @@
 import React from 'react'
 import Page404 from '../Page404'
 
-function Team() {
+function Services() {
   return (
     <>
     <Page404 />
@@ -9,4 +9,4 @@ function Team() {
   )
 }
 
-export default Team
+export default Services;

@@ -1,10 +1,10 @@
 import React from 'react'
-import Page404 from '../Page404'
+import ContactForm from './ContactForm'
 
 function Contact() {
   return (
     <>
-    <Page404 />
+    <ContactForm />
     </>
   )
 }
