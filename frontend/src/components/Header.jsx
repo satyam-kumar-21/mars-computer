@@ -25,7 +25,7 @@ function Header() {
                 alt="Flowbite Logo"
               />
               <span className="self-center text-xl text-blue-500 font-semibold whitespace-nowrap ">
-                MARS COMPUTER
+                DIADEEN EDUCATION
               </span>
             </Link>
             <div className="flex items-center lg:order-2">

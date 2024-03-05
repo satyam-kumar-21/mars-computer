@@ -10,7 +10,7 @@ function Footer() {
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-500">MARS COMPUTER</span>
+                <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-500">DIADEEN EDUCATION</span>
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

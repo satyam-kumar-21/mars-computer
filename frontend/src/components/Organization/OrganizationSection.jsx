@@ -1,14 +1,14 @@
 import React from 'react';
 
-const CallToAction = () => {
+const OrganizationSection = () => {
     return (
         <div className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto ">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold text-gray-900">Thinking of Starting an Institute?</h2>
-                    <p className="mt-4 text-lg text-gray-600">
+                    <h2 className="text-3xl font-bold text-blue-700">Thinking of Starting an Computer Institute?</h2>
+                    <h3 className="mt-4 px-1 md:px-20 text-xl text-gray-700">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-                    </p>
+                    </h3>
                     <div className="mt-8 flex flex-col items-center justify-center sm:flex-row sm:justify-center">
                         <div className="mb-4 sm:mb-0 sm:mr-4">
                             <button
@@ -36,9 +36,11 @@ const CallToAction = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h3 className="text-xl font-bold text-gray-900">Steps to open an institute</h3>
+
+               
+                <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 bg-gray-400">
+                    <div className=" rounded-lg shadow-md p-6 bg-gray-400">
+                        <h3 className="text-2xl font-bold text-blue-900">Steps to open an institute</h3>
                         <div className="mt-4 grid grid-cols-1 gap-4">
                             <div className="bg-gray-200 rounded-lg p-4">
                                 Step 1
@@ -51,11 +53,11 @@ const CallToAction = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h3 className="text-xl font-bold text-gray-900">Documents Needed For Registration</h3>
+                    <div className="bg-gray-400 rounded-lg shadow-md p-6">
+                        <h3 className="text-2xl font-bold text-blue-900">Documents Needed For Registration</h3>
                         <div className="mt-4 grid grid-cols-1 gap-4">
                             <div className="bg-gray-200 rounded-lg p-4">
-                                Document 1
+                              Document 1
                             </div>
                             <div className="bg-gray-200 rounded-lg p-4">
                                 Document 2
@@ -71,4 +73,4 @@ const CallToAction = () => {
     );
 };
 
-export default CallToAction;
+export default OrganizationSection;

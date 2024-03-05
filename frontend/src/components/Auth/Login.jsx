@@ -6,7 +6,7 @@ function Login({ toggleModal, isOpen }) {
     <>
       {isOpen && (
         <div
-          className="fixed top-0 right-0 left-0 z-5000 flex justify-center items-center w-full h-screen bg-black bg-opacity-50"
+          className="fixed top-0 right-0 left-0 z-5000 flex md:px-0 px-3 justify-center items-center w-full h-screen bg-black bg-opacity-50"
           onClick={toggleModal}
         >
           <div

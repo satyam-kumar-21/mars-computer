@@ -5,16 +5,18 @@ import MeetOurTeams from './MeetOurTeams'
 import Subscribe from './Subscribe'
 import Teatinomials from './Testinomials'
 import WhyUs from './WhyUs'
+import LetUs from '../Contact/LetUs'
 
 function Home() {
   return (
     <>
     <HeroSection />
-    <Stats />
-    <MeetOurTeams />
-    <WhyUs />
-    <Subscribe />
-    <Teatinomials />
+   <Stats />
+   <MeetOurTeams />
+   <WhyUs />
+   <Subscribe />
+   <Teatinomials />
+   <LetUs />
     </>
   )
 }

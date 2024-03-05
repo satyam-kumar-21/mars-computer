@@ -1,12 +1,12 @@
 import React from 'react'
-import Page404 from '../Page404'
-import CallToAction from './CallToAction'
-import WhyUs from '../Home/WhyUs'
+import OrganizationSection from './OrganizationSection'
+import LetUs from '../Contact/LetUs'
 
 function Organization() {
   return (
     <div className='pt-10'>
-    <CallToAction />
+    <OrganizationSection />
+    <LetUs />
     </div>
   )
 }
