@@ -1,7 +1,7 @@
 import React from 'react'
 import Page404 from '../../Page404'
 
-function SeeAll() {
+function SeeAllInstitutes() {
   return (
     <>
     <Page404 />
@@ -9,4 +9,4 @@ function SeeAll() {
   )
 }
 
-export default SeeAll
+export default SeeAllInstitutes

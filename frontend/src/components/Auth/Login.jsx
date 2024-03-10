@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Login({ toggleModal, isOpen }) {
+function Login({ toggleModal, isOpen , isSignupModelOpen, toggleSignupModal}) {
   return (
     <>
       {isOpen && (
@@ -15,7 +15,7 @@ function Login({ toggleModal, isOpen }) {
           >
             <div className=" w-full text-gray-700 space-y-5">
               <div className="text-center ">
-                <h3 className=" text-2xl text-blue-600 font-bold sm:text-3xl">Log in to your account</h3>
+                <h3 className=" text-2xl text-blue-600 font-bold sm:text-3xl">Sign in to your account</h3>
               </div>
               <form className="space-y-5">
                 <div>
@@ -75,11 +75,13 @@ function Login({ toggleModal, isOpen }) {
                 </svg>
                 Continue with Google
               </button>
-              <p className="text-center">Don't have an account? <Link to="" className="font-medium text-indigo-600 hover:text-indigo-500">Sign up</Link></p>
+              <p className="text-center">Don't have an account? <button onClick={toggleSignupModal} className="font-medium text-indigo-600 hover:text-indigo-500">Sign up</button></p>
             </div>
           </div>
         </div>
       )}
+
+      
     </>
   );
 }

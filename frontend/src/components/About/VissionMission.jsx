@@ -7,7 +7,7 @@ const mission = "https://imgs.search.brave.com/bFe40PANeIF_2KeIH066Jt2DbQR1KOaqQ
 const values = "https://imgs.search.brave.com/WgerGcvFXlwALm182kPNzpfypspBPzwWNmU5u5KGigQ/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA4/NTUxNDQ0Ni9waG90/by92YWx1ZXMtdG9y/bi1wYXBlci1jb25j/ZXB0LmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1ZSV9RUUFh/UnFjWUN0dEtZNnd5/a1NJMXBtM2JfcnRu/WC1sRGloVFFwblhB/PQ"
 
   return (
-    <div className="bg-blue-500 py-12">
+    <div className="bg-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:text-center">
           <h2 className="md:text-3xl text-2xl font-bold text-gray-900">Our Mission, Vission & Values</h2>
