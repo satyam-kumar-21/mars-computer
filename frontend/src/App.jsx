@@ -9,6 +9,8 @@ import Services from "./components/Service/Services";
 import Batches from "./components/Batches/Batches";
 import Organization from "./components/Organization/Organization";
 import SeeAllInstitutes from "./components/Organization/See all/SeeAllInstitutes";
+import UserProfile from "./components/protected/user/UserProfile";
+import AdminProfile from "./components/protected/admin/AdminProfile";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
 
         <Route path="/organization" element={<Organization />} />
         <Route path="/organization/all-institutes" element={<SeeAllInstitutes />} />
+        <Route path="/user/profile" element={<UserProfile />}/>
+        <Route path="/admin/profile" element={<AdminProfile />}/>
       </Routes>
       <Footer />
     </>

@@ -1,7 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import {useDispatch} from "react-redux"
+import { registerUserAction } from "../../store/actions/userAction";
 
 function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
+
+  const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState({
+    name:'',
+    email:'',
+    password:'',
+    confirmPassword:''
+  })
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name] : e.target.value});
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(formData.password !== formData.confirmPassword){
+      setErrorMessage("Password do not matched");
+      return;
+    }
+
+    try {
+      await dispatch(registerUserAction(formData));
+
+      toggleModal();
+    } catch (error) {
+      console.error('Registration failed:', error);
+    }
+  }
   return (
     <>
       {isSignupOpen && (
@@ -19,12 +52,14 @@ function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
                   Create your account
                 </h3>
               </div>
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <input
                     id="name"
                     name="name"
                     type="text"
+                    value={formData.name}
+                    onChange={handleChange}
                     autoComplete="name"
                     placeholder="Enter your full name"
                     required
@@ -37,6 +72,8 @@ function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
                     id=""
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     autoComplete="email"
                     placeholder="Enter your email"
                     required
@@ -49,6 +86,8 @@ function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
                     id="password"
                     name="password"
                     type="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     autoComplete="current-password"
                     placeholder="Enter your password"
                     required
@@ -61,6 +100,8 @@ function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
                   autoComplete="confirmPassword"
                   placeholder="Confirm password"
                   required
@@ -68,7 +109,10 @@ function Signup({  isSignupOpen, toggleModal, toggleSignupModal }) {
                 />
               </div>
                
-                <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
+              {errorMessage && (
+                <p className="text-red-500 text-sm">{errorMessage}</p>
+              )}
+                <button type="submit" className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
                   Sign up
                 </button>
               </form>

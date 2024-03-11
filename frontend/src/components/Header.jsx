@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, Route } from "react-router-dom";
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,6 +25,20 @@ function Header() {
     setIsSignupModalOpen(!isSignupModalOpen);
   };
 
+ const isAuthenticate = useSelector(state => state.user.isAuthenticated);
+ const isAdmin = useSelector(state => state.user.user.isAdmin);
+ const user = useSelector(state => state.user.user);
+
+ const [profile, setProfile] = useState("");
+
+ useEffect(() => {
+  if (isAdmin) {
+    setProfile("/admin/profile");
+    console.log(profile);
+  } else {
+    setProfile("/user/profile");
+  }
+}, [isAdmin]);
 
   return (
     <>
@@ -41,12 +56,19 @@ function Header() {
               </span>
             </Link>
             <div className="flex items-center lg:order-2">
+
+            {!isAuthenticate ? (
               <button
                 onClick={toggleLoginModal}
                 className="text-gray-800 bg-blue-500 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
                 Log in
               </button>
+            ) : (
+              <Link to={profile} className="text-gray-800  dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 hidden md:flex">Hi, {user.name && user.name.split(" ")[0]}
+              </Link>
+            )}
+              
 
               <button
                 onClick={toggleMobileMenu}
@@ -133,6 +155,16 @@ function Header() {
                     Contact
                   </Link>
                 </li>
+
+                {isAuthenticate &&  <li>
+                  <Link
+                    to={profile}
+                    className="md:hidden block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Hi, {user.name && user.name.split(" ")[0]}
+
+                  </Link>
+                </li>}
               </ul>
             </div>
           </div>

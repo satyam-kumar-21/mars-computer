@@ -1,7 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUserAction } from "../../store/actions/userAction";
 
 function Login({ toggleModal, isOpen , isSignupModelOpen, toggleSignupModal}) {
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await dispatch(loginUserAction(formData));
+      toggleModal();
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setError("Invalid credentials. Please try again.");
+    }
+  }
   return (
     <>
       {isOpen && (
@@ -17,13 +42,17 @@ function Login({ toggleModal, isOpen , isSignupModelOpen, toggleSignupModal}) {
               <div className="text-center ">
                 <h3 className=" text-2xl text-blue-600 font-bold sm:text-3xl">Sign in to your account</h3>
               </div>
-              <form className="space-y-5">
+              {error && <div className="text-red-500 text-center">{error}</div>}
+              <form
+              onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   
                   <input
                     id="email-address"
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     autoComplete="email"
                     placeholder="Enter your email"
                     required
@@ -36,6 +65,8 @@ function Login({ toggleModal, isOpen , isSignupModelOpen, toggleSignupModal}) {
                     id="password"
                     name="password"
                     type="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     autoComplete="current-password"
                     placeholder="Enter your password"
                     required
@@ -53,7 +84,7 @@ function Login({ toggleModal, isOpen , isSignupModelOpen, toggleSignupModal}) {
                   </div>
                   <a href="javascript:void(0)" className="text-center text-indigo-600 hover:text-indigo-500">Forgot password?</a>
                 </div>
-                <button
+                <button type="submit"
                   className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
                 >
                   Sign in
