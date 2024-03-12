@@ -1,15 +1,14 @@
 import React from 'react'
-import AdminNav from './AdminNav'
+import AdminNav from '../AdminNav'
 
-function AdminProfile() {
+function Dashboard() {
   return (
     <div className="pt-14 flex">
     <AdminNav />
-
-<div></div>
     
+    <h1>Dashboard</h1>
     </div>
   )
 }
 
-export default AdminProfile
+export default Dashboard
